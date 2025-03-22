@@ -10,22 +10,13 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
-    if b == 0:
-        return "Error: Division by zero is not allowed!"
-    return a / b
+    return "Error: Division by zero is not allowed!" if b == 0 else a / b
 
 def calculator():
     print("\n🧮 Welcome to the Simple Calculator! 🧮")
-    print("-------------------------------------------------")
-
+    
     while True:
-        print("\nSelect an operation:")
-        print("1️⃣ Addition (+)")
-        print("2️⃣ Subtraction (-)")
-        print("3️⃣ Multiplication (*)")
-        print("4️⃣ Division (/)")
-        print("5️⃣ Exit ❌")
-
+        print("\n1️⃣ Addition (+)\n2️⃣ Subtraction (-)\n3️⃣ Multiplication (*)\n4️⃣ Division (/)\n5️⃣ Exit ❌")
         choice = input("Enter your choice (1-5): ")
 
         if choice == '5':
@@ -43,17 +34,8 @@ def calculator():
             print("\n⚠️ Invalid input! Please enter numeric values.")
             continue
 
-        if choice == '1':
-            result = add(num1, num2)
-        elif choice == '2':
-            result = subtract(num1, num2)
-        elif choice == '3':
-            result = multiply(num1, num2)
-        elif choice == '4':
-            result = divide(num1, num2)
-
+        result = add(num1, num2) if choice == '1' else subtract(num1, num2) if choice == '2' else multiply(num1, num2) if choice == '3' else divide(num1, num2)
         print(f"\n✅ Result: {result}")
 
-# Run the calculator
 if __name__ == "__main__":
     calculator()
